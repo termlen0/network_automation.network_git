@@ -1,0 +1,17 @@
+---
+- name: set repo path
+  set_fact:
+    git_path: "{{ playbook_dir }}{{ git_url | regex_search('/(.+).git') | regex_replace('.git', '') }}"
+  run_once: yes
+  delegate_to: localhost
+
+- name: git pull
+  include_role:
+    name: network_automation.network_git.ansible-git
+    tasks_from: pull
+  run_once: yes
+  delegate_to: localhost
+
+- name: Gather running configs
+  include_task: "{{ ansible_network_os }}".yaml
+  when: ansible_network_os is defined

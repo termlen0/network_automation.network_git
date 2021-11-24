@@ -1,0 +1,4 @@
+git_url: '' #Git repo that should store network device config backups
+git_key: ''
+git_branch: 'main'
+secret_key: '' #Path to key file

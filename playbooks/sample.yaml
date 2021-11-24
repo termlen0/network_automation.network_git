@@ -1,0 +1,12 @@
+---
+- name: Backup multivendor network devices
+  hosts: all
+  gather_facts: no
+  tasks:
+    - name: Invoke the network_git role
+      include_role:
+        name: network_automation.network_git.network-backup
+      vars:
+        git_url: "https://github.com/termlen0/caretaker-sot"
+        git_branch: 'main'
+        git_secret: "{{ lookup('file', secret_key ) }}"
