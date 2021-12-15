@@ -7,11 +7,10 @@
 
 - name: git pull
   include_role:
-    name: network_automation.network_git.ansible-git
+    name: network_automation.network_git.ansible_git
     tasks_from: pull
   run_once: yes
-  delegate_to: localhost
 
 - name: Gather running configs
-  include_task: "{{ ansible_network_os }}".yaml
+  include_task: "{{ ansible_network_os }}.yaml"
   when: ansible_network_os is defined
