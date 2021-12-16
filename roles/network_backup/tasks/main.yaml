@@ -12,5 +12,5 @@
   run_once: yes
 
 - name: Gather running configs
-  include_task: "{{ ansible_network_os }}.yaml"
+  include_tasks: "{{ ansible_network_os }}.yaml"
   when: ansible_network_os is defined
