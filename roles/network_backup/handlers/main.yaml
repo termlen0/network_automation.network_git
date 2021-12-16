@@ -4,4 +4,3 @@
   include_role:
     name: network_automation.network_git.ansible-git
     tasks_from: push
-  listen: "git_sync"
